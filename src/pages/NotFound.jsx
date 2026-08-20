@@ -13,14 +13,14 @@ export default function NotFound() {
     };
 
     document.addEventListener('mousemove', handleMouseMove);
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-surface">
-      {/* TopNavBar */}
+    <div className="flex flex-col min-h-screen bg-surface-container-lowest">
       <nav className="bg-surface fixed top-0 z-50 w-full border-b border-outline-variant">
         <div className="flex justify-between items-center w-full px-md md:px-lg py-sm max-w-[1440px] mx-auto">
           <div className="font-h2 text-h2 tracking-tighter text-primary uppercase">PIXELS STUDIO</div>
@@ -37,9 +37,7 @@ export default function NotFound() {
         </div>
       </nav>
 
-      {/* Main Brutalist Canvas */}
       <main className="flex-grow flex pt-[64px]">
-        {/* Split Screen: Left (Visual Focus) */}
         <section className="hidden md:flex w-1/2 border-r border-outline-variant items-center justify-center relative overflow-hidden bg-surface-container-lowest">
           <div className="crosshair top-md left-md opacity-40"></div>
           <div className="crosshair top-md right-md opacity-40"></div>
@@ -50,10 +48,8 @@ export default function NotFound() {
           </div>
         </section>
 
-        {/* Split Screen: Right (System/Functional) */}
         <section className="w-full md:w-1/2 flex flex-col p-md md:p-xl relative">
           <div className="flex-grow space-y-lg">
-            {/* Header */}
             <div className="space-y-xs">
               <span className="terminal-text uppercase opacity-60 flex items-center gap-xs">
                 <span className="w-2 h-2 bg-error rounded-full animate-pulse"></span>
@@ -64,9 +60,7 @@ export default function NotFound() {
               </h1>
             </div>
 
-            {/* Technical Logs Grid */}
             <div className="grid grid-cols-1 gap-sm">
-              {/* Lost Assets Card */}
               <div className="brutalist-border p-md relative group hover:bg-surface-container-low transition-colors">
                 <div className="crosshair top-0 left-0 w-2 h-2"></div>
                 <h3 className="terminal-text mb-sm border-b border-outline-variant pb-xs">LOST_ASSETS</h3>
@@ -77,7 +71,6 @@ export default function NotFound() {
                 </div>
               </div>
 
-              {/* Kernel Status Card */}
               <div className="brutalist-border p-md relative group hover:bg-surface-container-low transition-colors">
                 <div className="crosshair top-0 left-0 w-2 h-2"></div>
                 <h3 className="terminal-text mb-sm border-b border-outline-variant pb-xs">KERNEL_STATUS: <span className="status-critical">CRITICAL</span></h3>
@@ -88,7 +81,6 @@ export default function NotFound() {
                 </div>
               </div>
 
-              {/* Memory Dump Card */}
               <div className="brutalist-border p-md relative group hover:bg-surface-container-low transition-colors">
                 <div className="crosshair top-0 left-0 w-2 h-2"></div>
                 <h3 className="terminal-text mb-sm border-b border-outline-variant pb-xs">MEMORY_DUMP</h3>
@@ -98,7 +90,6 @@ export default function NotFound() {
               </div>
             </div>
 
-            {/* Navigation Actions */}
             <div className="flex flex-col sm:flex-row gap-md pt-md">
               <Link to="/" className="bg-primary text-on-primary font-label-sm text-label-sm px-xl py-md rounded-none uppercase tracking-widest hover:bg-on-surface transition-colors text-center">
                 REBOOT_SESSION
@@ -109,7 +100,6 @@ export default function NotFound() {
             </div>
           </div>
 
-          {/* Coordinates / Meta */}
           <div className="mt-auto pt-lg flex justify-between terminal-text opacity-40">
             <span>LOC: [40.7128° N, 74.0060° W]</span>
             <span>PRC: HIGH_PRIORITY</span>
@@ -117,7 +107,6 @@ export default function NotFound() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="bg-surface border-t border-outline-variant w-full">
         <div className="flex flex-col md:flex-row justify-between items-center w-full px-lg py-lg gap-md max-w-[1440px] mx-auto">
           <div className="font-label-sm text-label-sm font-bold text-primary uppercase">© 2024 PIXELS STUDIO. BUILT FOR PRECISION.</div>

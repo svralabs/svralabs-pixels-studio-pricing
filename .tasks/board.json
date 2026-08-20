@@ -1,6 +1,6 @@
 {
   "project_name": "svralabs-pixels-studio-pricing",
-  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI components in src/components/. Tailwind CSS for styling. React Router for navigation. No state management lib (use React context if needed).",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. Tailwind for styling. React Router for navigation. No state manager (useState/useContext only).",
   "tickets": [
     {
       "id": "TASK-001",
@@ -8,15 +8,16 @@
       "model": "hermes-auto",
       "title": "Create Pricing System page (src/pages/PricingSystem.jsx)",
       "source_screen": "stitch_pixels_studio_pricing_system 2",
-      "description": "Convert Stitch screen to React. Include header, hero section, pricing tiers, features grid, CTA. Use Tailwind classes from design. Responsive layout.",
+      "description": "Convert Stitch screen to React. Extract reusable pricing card component. Use Tailwind classes from design. Hardcode data for now.",
       "target_files": [
-        "src/pages/PricingSystem.jsx"
+        "src/pages/PricingSystem.jsx",
+        "src/components/PricingCard.jsx"
       ],
       "acceptance_criteria": [
         "Pixel-perfect match to Stitch screen",
-        "Mobile responsive",
-        "All interactive elements (buttons, toggles) functional",
-        "Static data for now; API integration later"
+        "PricingCard.jsx reusable for other screens",
+        "No external API calls (hardcoded data)",
+        "Responsive (mobile/desktop)"
       ],
       "status": "DONE"
     },
@@ -26,14 +27,15 @@
       "model": "hermes-auto",
       "title": "Build Services Pricing page (src/pages/ServicesPricing.jsx)",
       "source_screen": "pixels_studio_services_pricing",
-      "description": "Implement service pricing table. Include service cards, pricing details, comparison toggle. Use shared Table component from TASK-004.",
+      "description": "Implement services pricing table. Reuse PricingCard from TASK-001. Add service comparison toggle. Hardcode data.",
       "target_files": [
         "src/pages/ServicesPricing.jsx"
       ],
       "acceptance_criteria": [
-        "Exact visual match to design",
-        "Table sorting/filtering disabled for now (static data)",
-        "Responsive card layout for mobile"
+        "Exact match to Stitch design",
+        "Reuse PricingCard component",
+        "Comparison toggle functional (UI only)",
+        "No API integration"
       ],
       "status": "DONE"
     },
@@ -41,16 +43,16 @@
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Create 404 page (src/pages/NotFound.jsx)",
+      "title": "Implement 404 page (src/pages/NotFound.jsx)",
       "source_screen": "pixels_studio_404_brutalist",
-      "description": "Implement brutalist 404 page. Include error message, home link, pixel-art graphic. No dynamic data.",
+      "description": "Create brutalist 404 page. Use design's exact copy and styling. Add home link.",
       "target_files": [
         "src/pages/NotFound.jsx"
       ],
       "acceptance_criteria": [
-        "100% match to Stitch screen",
-        "Home link functional",
-        "No console errors"
+        "Pixel-perfect to Stitch screen",
+        "Home link navigates to root",
+        "No external dependencies"
       ],
       "status": "DONE"
     },
@@ -58,22 +60,21 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Build shared UI components (src/components/)",
+      "title": "Extract shared UI components",
       "source_screen": "",
-      "description": "Extract reusable components from showcase screens. Create: Button, Badge, InputSelect, Table, Toast, Loader. Use Tailwind for styling. Props for variants (size, color, state).",
+      "description": "Create reusable components from showcase screens. Components: Button, Badge, InputSelect, Toast, Loader. Use Tailwind classes from designs.",
       "target_files": [
         "src/components/Button.jsx",
         "src/components/Badge.jsx",
         "src/components/InputSelect.jsx",
-        "src/components/Table.jsx",
         "src/components/Toast.jsx",
         "src/components/Loader.jsx"
       ],
       "acceptance_criteria": [
         "Components match Stitch showcase designs exactly",
-        "All variants (primary/secondary, sizes) implemented",
-        "Accessible (keyboard nav, ARIA labels)",
-        "Storybook stories optional for now"
+        "All variants from showcase implemented",
+        "Props for customization (color, size, text)",
+        "No business logic (pure UI)"
       ],
       "status": "DONE"
     },
@@ -81,18 +82,17 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Implement Toast system (src/components/Toast.jsx + context)",
-      "source_screen": "pixels_studio_toast_ui_showcase",
-      "description": "Create Toast component and context provider. Support success/error/warning/info variants. Auto-dismiss after 5s. Stackable toasts. Use React context for global access.",
+      "title": "Create Table component (src/components/Table.jsx)",
+      "source_screen": "pixels_studio_table_showcase",
+      "description": "Build reusable table component. Support sorting indicators, hover states, column alignment from design. Hardcode data for showcase.",
       "target_files": [
-        "src/components/Toast.jsx",
-        "src/context/ToastContext.jsx"
+        "src/components/Table.jsx"
       ],
       "acceptance_criteria": [
-        "All design variants implemented",
-        "Toasts dismissible via close button or timeout",
-        "Multiple toasts stack correctly",
-        "Context API works (useToast() hook)"
+        "Match Stitch table showcase exactly",
+        "Support all variants (striped, bordered, hover)",
+        "Column alignment props (left/center/right)",
+        "No external table libraries"
       ],
       "status": "DONE"
     },
@@ -102,20 +102,22 @@
       "model": "hermes-auto",
       "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
       "source_screen": "",
-      "description": "Set up React Router. Create app shell with navigation bar. Routes: / (PricingSystem), /services (ServicesPricing), * (NotFound). Navigation links match design. Dark/light mode toggle (static for now).",
+      "description": "Set up React Router. Create app shell with navigation. Link all pages. Add 404 route. Implement responsive nav bar from pricing system screen.",
       "target_files": [
         "src/App.jsx",
-        "src/components/NavBar.jsx"
+        "src/components/NavBar.jsx",
+        "src/main.jsx"
       ],
       "acceptance_criteria": [
-        "All routes load correct pages",
-        "Navigation links active state matches current route",
-        "404 page shows for unknown routes",
-        "Responsive nav bar (mobile menu optional for now)"
+        "All pages route correctly",
+        "Nav bar matches Stitch design",
+        "404 page works for unknown routes",
+        "Mobile-responsive navigation",
+        "No broken links"
       ],
       "status": "DONE"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 12:05:59"
+  "updated_at": "2026-08-20 13:58:31"
 }

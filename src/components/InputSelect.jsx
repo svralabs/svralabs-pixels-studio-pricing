@@ -1,26 +1,23 @@
 import React from 'react';
 
-const InputSelect = ({ options, value, onChange, placeholder = 'Select an option', size = 'medium' }) => {
-  const sizeClasses = {
-    small: 'px-3 py-1.5 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg',
-  };
-
+export default function InputSelect({ options, value, onChange, placeholder = 'Select an option' }) {
   return (
-    <select
-      className={`block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${sizeClasses[size]}`}
-      value={value}
-      onChange={onChange}
-    >
-      {placeholder && <option value="">{placeholder}</option>}
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
+    <div className="relative">
+      <select
+        value={value}
+        onChange={onChange}
+        className="w-full px-4 py-2 border border-gray-300 rounded-lg appearance-none bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="" disabled hidden>{placeholder}</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+        <span className="material-symbols-outlined text-gray-400">arrow_drop_down</span>
+      </span>
+    </div>
   );
-};
-
-export default InputSelect;
+}
