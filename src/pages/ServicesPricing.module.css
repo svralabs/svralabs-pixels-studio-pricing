@@ -4,8 +4,8 @@
 }
 
 .nav {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #f8f9fa;
+  color: #212529;
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
@@ -13,7 +13,7 @@
   width: 100%;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #dee2e6;
   z-index: 50;
 }
 
@@ -38,14 +38,14 @@
 .brand {
   font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
-  line-height: 1.2;
   font-weight: 900;
-  color: #333333;
+  color: #212529;
+  letter-spacing: -0.05em;
 }
 
 @media (min-width: 768px) {
   .brand {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 }
 
@@ -62,17 +62,17 @@
 }
 
 .navLink {
-  color: #666666;
-  transition: color 0.2s ease;
+  color: #6c757d;
+  transition: color 0.2s ease-in-out;
 }
 
 .navLink:hover {
-  color: #333333;
+  color: #212529;
 }
 
 .active {
-  color: #333333;
-  border-bottom: 1px solid #333333;
+  color: #212529;
+  border-bottom: 1px solid #212529;
   padding-bottom: 0.25rem;
 }
 
@@ -83,12 +83,12 @@
 }
 
 .navAction {
-  color: #666666;
-  transition: color 0.2s ease;
+  color: #6c757d;
+  transition: color 0.2s ease-in-out;
 }
 
 .navAction:hover {
-  color: #333333;
+  color: #212529;
 }
 
 @media (min-width: 640px) {
@@ -129,34 +129,17 @@
 .dottedBorder {
   position: absolute;
   inset: 0;
-  border: 1px dashed #e0e0e0;
+  border: 1px dashed #dee2e6;
   border-radius: 4px;
 }
 
-.cornerMarker {
+.crosshair {
   position: absolute;
   width: 10px;
   height: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.cornerMarker::before,
-.cornerMarker::after {
-  content: '';
-  position: absolute;
-  background-color: #e0e0e0;
-}
-
-.cornerMarker::before {
-  width: 100%;
-  height: 1px;
-}
-
-.cornerMarker::after {
-  width: 1px;
-  height: 100%;
 }
 
 .topLeft {
@@ -179,6 +162,20 @@
   right: -5px;
 }
 
+.crosshairLine {
+  width: 100%;
+  height: 1px;
+  background-color: #dee2e6;
+  position: absolute;
+}
+
+.crosshairLineVertical {
+  height: 100%;
+  width: 1px;
+  background-color: #dee2e6;
+  position: absolute;
+}
+
 .labelText {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
@@ -188,7 +185,7 @@
 
 .headline {
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   max-width: 64rem;
   margin-bottom: 4rem;
@@ -196,7 +193,7 @@
 
 @media (min-width: 768px) {
   .headline {
-    font-size: 3rem;
+    font-size: 2.25rem;
   }
 }
 
@@ -213,108 +210,46 @@
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: #f8f9fa;
   border-radius: 24px;
   padding: 2rem;
   position: relative;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #dee2e6;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-}
-
 .cornerTick {
   position: absolute;
   width: 16px;
   height: 16px;
-}
-
-.cornerTick::before,
-.cornerTick::after {
-  content: '';
-  position: absolute;
-  background-color: #333333;
+  background-color: #212529;
 }
 
 .tickTl {
-  top: 0;
-  left: 0;
-}
-
-.tickTl::before {
-  width: 100%;
-  height: 2px;
-  top: 0;
-  left: 0;
-}
-
-.tickTl::after {
-  width: 2px;
-  height: 100%;
-  top: 0;
-  left: 0;
+  top: -8px;
+  left: -8px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .tickTr {
-  top: 0;
-  right: 0;
-}
-
-.tickTr::before {
-  width: 100%;
-  height: 2px;
-  top: 0;
-  right: 0;
-}
-
-.tickTr::after {
-  width: 2px;
-  height: 100%;
-  top: 0;
-  right: 0;
+  top: -8px;
+  right: -8px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
 }
 
 .tickBl {
-  bottom: 0;
-  left: 0;
-}
-
-.tickBl::before {
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-}
-
-.tickBl::after {
-  width: 2px;
-  height: 100%;
-  bottom: 0;
-  left: 0;
+  bottom: -8px;
+  left: -8px;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
 }
 
 .tickBr {
-  bottom: 0;
-  right: 0;
-}
-
-.tickBr::before {
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  right: 0;
-}
-
-.tickBr::after {
-  width: 2px;
-  height: 100%;
-  bottom: 0;
-  right: 0;
+  bottom: -8px;
+  right: -8px;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
 
 .cardHeader {
@@ -327,28 +262,28 @@
 .cardTitle {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #666666;
+  letter-spacing: 0.2em;
+  color: #6c757d;
   margin-bottom: 0.25rem;
 }
 
 .priceContainer {
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .price {
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
-  line-height: 1.2;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .priceType {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  color: #666666;
+  color: #6c757d;
 }
 
 .iconContainer {
@@ -357,37 +292,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e0e0e0;
+  background-color: #dee2e6;
   border-radius: 9999px;
 }
 
 .featureList {
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .featureItem {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .featureText {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: #333333;
+  color: #212529;
 }
 
 .ctaButton {
   width: 100%;
-  background-color: #333333;
-  color: #ffffff;
+  background-color: #212529;
+  color: #f8f9fa;
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  letter-spacing: 0.2em;
   text-transform: uppercase;
+  letter-spacing: 0.2em;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
@@ -396,8 +331,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  transition: all 0.3s ease;
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .ctaButton:hover {
@@ -406,4 +341,8 @@
 
 .ctaButton:active {
   transform: scale(0.95);
+}
+
+.group:hover .ctaButton {
+  transform: translateY(-4px);
 }

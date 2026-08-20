@@ -1,15 +1,27 @@
-import React from 'react';
-export default function Table({ headers = [], rows = [], className = '' }) {
+import PropTypes from 'prop-types';
+import styles from './Table.module.css';
+
+export default function Table({ columns, data }) {
   return (
-    <div className={`overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 ${className}`}>
-      <table className="w-full text-left text-sm">
-        <thead className="bg-slate-50 dark:bg-slate-800/60 text-slate-500 font-semibold border-b border-slate-200 dark:border-slate-800">
-          <tr>{headers.map((h, i) => <th key={i} className="p-3.5">{h}</th>)}</tr>
+    <div className={styles.tableContainer}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th key={column.key} className={styles.th}>
+                {column.title}
+              </th>
+            ))}
+          </tr>
         </thead>
-        <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-          {rows.map((row, rIdx) => (
-            <tr key={rIdx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-              {row.map((cell, cIdx) => <td key={cIdx} className="p-3.5">{cell}</td>)}
+        <tbody>
+          {data.map((row, index) => (
+            <tr key={index} className={styles.tr}>
+              {columns.map((column) => (
+                <td key={column.key} className={styles.td}>
+                  {row[column.key]}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>
@@ -17,3 +29,13 @@ export default function Table({ headers = [], rows = [], className = '' }) {
     </div>
   );
 }
+
+Table.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

@@ -5,13 +5,11 @@ import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import ServicesPricing from './pages/ServicesPricing';
-import PricingSystem from './pages/PricingSystem';
 
 function ScreenBar() {
   const loc = useLocation();
   const navs = [
-    { path: '/', label: 'ServicesPricing' },
-    { path: '/pricingsystem', label: 'PricingSystem' }
+    { path: '/', label: 'ServicesPricing' }
   ];
 
   return (
@@ -48,7 +46,6 @@ export default function App() {
               <div className="pt-10 min-h-screen">
                 <Routes>
                   <Route path='/' element={<ServicesPricing />} />
-        <Route path='/pricingsystem' element={<PricingSystem />} />
                   <Route path="*" element={<ServicesPricing />} />
                 </Routes>
               </div>
