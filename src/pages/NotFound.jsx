@@ -20,16 +20,16 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-surface-container-lowest">
+    <div className="flex flex-col min-h-screen">
       <nav className="bg-surface fixed top-0 z-50 w-full border-b border-outline-variant">
         <div className="flex justify-between items-center w-full px-md md:px-lg py-sm max-w-[1440px] mx-auto">
           <div className="font-h2 text-h2 tracking-tighter text-primary uppercase">PIXELS STUDIO</div>
           <div className="hidden md:flex items-center gap-md">
             <Link to="/" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300">HOME</Link>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">WORK</a>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">GALLERY</a>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SERVICES</a>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CONTACT</a>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300">WORK</Link>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300">GALLERY</Link>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300">SERVICES</Link>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300">CONTACT</Link>
           </div>
           <button className="bg-primary text-on-primary font-label-sm text-label-sm px-md py-xs rounded-full uppercase tracking-widest hover:opacity-80 transition-all">
             START A PROJECT
@@ -94,7 +94,7 @@ export default function NotFound() {
               <Link to="/" className="bg-primary text-on-primary font-label-sm text-label-sm px-xl py-md rounded-none uppercase tracking-widest hover:bg-on-surface transition-colors text-center">
                 REBOOT_SESSION
               </Link>
-              <button className="border border-outline text-primary font-label-sm text-label-sm px-xl py-md rounded-none uppercase tracking-widest hover:bg-surface-container-highest transition-colors text-center">
+              <button className="border border-outline text-primary font-label-sm text-label-sm px-xl py-xl rounded-none uppercase tracking-widest hover:bg-surface-container-highest transition-colors text-center">
                 SYSTEM_DIAGNOSTICS
               </button>
             </div>
@@ -111,10 +111,10 @@ export default function NotFound() {
         <div className="flex flex-col md:flex-row justify-between items-center w-full px-lg py-lg gap-md max-w-[1440px] mx-auto">
           <div className="font-label-sm text-label-sm font-bold text-primary uppercase">© 2024 PIXELS STUDIO. BUILT FOR PRECISION.</div>
           <div className="flex gap-md">
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95" href="#">INSTAGRAM</a>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95" href="#">BEHANCE</a>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95" href="#">DRIBBBLE</a>
-            <a className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95" href="#">LINKEDIN</a>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95">INSTAGRAM</Link>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95">BEHANCE</Link>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95">DRIBBBLE</Link>
+            <Link to="#" className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95">LINKEDIN</Link>
           </div>
         </div>
       </footer>

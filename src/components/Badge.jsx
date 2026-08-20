@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function Badge({ children, variant = 'primary', size = 'medium' }) {
+export default function Badge({
+  children,
+  variant = 'primary',
+  size = 'medium',
+  className = '',
+  ...props
+}) {
   const baseClasses = 'inline-flex items-center rounded-full font-medium';
   const variantClasses = {
     primary: 'bg-blue-100 text-blue-800',
@@ -9,13 +15,15 @@ export default function Badge({ children, variant = 'primary', size = 'medium' }
     danger: 'bg-red-100 text-red-800',
   };
   const sizeClasses = {
-    small: 'px-2.5 py-0.5 text-xs',
-    medium: 'px-3 py-1 text-sm',
-    large: 'px-4 py-2 text-base',
+    small: 'px-2 py-0.5 text-xs',
+    medium: 'px-2.5 py-0.5 text-sm',
+    large: 'px-3 py-1 text-base',
   };
 
+  const badgeClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
   return (
-    <span className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]}`}>
+    <span className={badgeClasses} {...props}>
       {children}
     </span>
   );
