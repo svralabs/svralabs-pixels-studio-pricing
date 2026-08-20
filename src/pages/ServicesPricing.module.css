@@ -1,0 +1,409 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.nav {
+  background-color: #ffffff;
+  color: #333333;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 50;
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .navContent {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 900;
+  color: #333333;
+}
+
+@media (min-width: 768px) {
+  .brand {
+    font-size: 2rem;
+  }
+}
+
+.navLinks {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.navLink {
+  color: #666666;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #333333;
+}
+
+.active {
+  color: #333333;
+  border-bottom: 1px solid #333333;
+  padding-bottom: 0.25rem;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navAction {
+  color: #666666;
+  transition: color 0.2s ease;
+}
+
+.navAction:hover {
+  color: #333333;
+}
+
+@media (min-width: 640px) {
+  .navAction:first-child {
+    display: block;
+  }
+}
+
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.headerLabel {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.dottedBorder {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed #e0e0e0;
+  border-radius: 4px;
+}
+
+.cornerMarker {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cornerMarker::before,
+.cornerMarker::after {
+  content: '';
+  position: absolute;
+  background-color: #e0e0e0;
+}
+
+.cornerMarker::before {
+  width: 100%;
+  height: 1px;
+}
+
+.cornerMarker::after {
+  width: 1px;
+  height: 100%;
+}
+
+.topLeft {
+  top: -5px;
+  left: -5px;
+}
+
+.topRight {
+  top: -5px;
+  right: -5px;
+}
+
+.bottomLeft {
+  bottom: -5px;
+  left: -5px;
+}
+
+.bottomRight {
+  bottom: -5px;
+  right: -5px;
+}
+
+.labelText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.headline {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  max-width: 64rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: 3rem;
+  }
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .pricingGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  position: relative;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cornerTick {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+
+.cornerTick::before,
+.cornerTick::after {
+  content: '';
+  position: absolute;
+  background-color: #333333;
+}
+
+.tickTl {
+  top: 0;
+  left: 0;
+}
+
+.tickTl::before {
+  width: 100%;
+  height: 2px;
+  top: 0;
+  left: 0;
+}
+
+.tickTl::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.tickTr {
+  top: 0;
+  right: 0;
+}
+
+.tickTr::before {
+  width: 100%;
+  height: 2px;
+  top: 0;
+  right: 0;
+}
+
+.tickTr::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.tickBl {
+  bottom: 0;
+  left: 0;
+}
+
+.tickBl::before {
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+}
+
+.tickBl::after {
+  width: 2px;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.tickBr {
+  bottom: 0;
+  right: 0;
+}
+
+.tickBr::before {
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  right: 0;
+}
+
+.tickBr::after {
+  width: 2px;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.cardTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #666666;
+  margin-bottom: 0.25rem;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.price {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.priceType {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.iconContainer {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  border-radius: 9999px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featureText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #333333;
+}
+
+.ctaButton {
+  width: 100%;
+  background-color: #333333;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  opacity: 0.9;
+}
+
+.ctaButton:active {
+  transform: scale(0.95);
+}

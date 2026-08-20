@@ -1,0 +1,81 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.header {
+  margin-bottom: 4rem;
+  max-width: 48rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  color: #64748B;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  max-width: 42rem;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.sectionLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 0.25rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.interactiveTable {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.technicalTable {
+  border: 1px dashed #E2E8F0;
+  padding: 1.5rem;
+  position: relative;
+  background-color: #F8FAFC;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}

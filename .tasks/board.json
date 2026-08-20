@@ -1,22 +1,32 @@
 {
   "project_name": "svralabs-pixels-studio-pricing",
-  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. Tailwind CSS for styling. React Router for navigation. No state management lib (useState + context for now).",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. CSS modules for scoped styles. React Router v6 for navigation. No state manager (useContext + useReducer for global state). Prefer native HTML/CSS over libs. Minimal dependencies: react, react-dom, react-router-dom. Build tool: Vite. Testing: Vitest + React Testing Library. Lint: ESLint + Prettier. Type safety: JSDoc + TypeScript in CI check only (no .ts files).",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Create Pricing System page (src/pages/PricingSystem.jsx)",
-      "source_screen": "stitch_pixels_studio_pricing_system 2",
-      "description": "Convert Stitch pricing system screen to React. Include header, hero, pricing tiers, FAQ, CTA. Use Tailwind classes from design. Responsive.",
+      "title": "Create base project structure and tooling",
+      "source_screen": "",
+      "description": "Initialize Vite React project. Configure ESLint, Prettier, Vitest. Set up folder structure: src/{pages,components,assets,utils,contexts,hooks}. Add minimal CSS reset. Add React Router v6. Configure base URL for assets. Add .nvmrc for Node 20. Add scripts: dev, build, test, lint, format.",
       "target_files": [
-        "src/pages/PricingSystem.jsx"
+        "package.json",
+        "vite.config.js",
+        "src/main.jsx",
+        "src/App.jsx",
+        "src/styles/reset.css",
+        ".eslintrc.js",
+        ".prettierrc",
+        "vitest.config.js",
+        ".nvmrc"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screen",
-        "Mobile/desktop responsive",
-        "Static data for now (no API)",
-        "All interactive elements (buttons, toggles) visually match design"
+        "Project builds without errors",
+        "ESLint and Prettier run without errors",
+        "Vitest runs with 0 tests",
+        "React Router v6 installed and configured",
+        "Node 20 enforced via .nvmrc",
+        "CSS reset applied globally"
       ],
       "status": "DONE"
     },
@@ -24,16 +34,30 @@
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Build Services Pricing page (src/pages/ServicesPricing.jsx)",
-      "source_screen": "pixels_studio_services_pricing",
-      "description": "Implement services pricing table. Include service cards, pricing details, comparison toggle. Use Tailwind for styling.",
+      "title": "Build shared UI components from showcase screens",
+      "source_screen": "pixels_studio_button_showcase, pixels_studio_badge_showcase, pixels_studio_input_select_showcase, pixels_studio_toast_ui_showcase, pixels_studio_loader_showcase",
+      "description": "Extract reusable components from showcase screens. Build: Button, Badge, SelectInput, Toast, Loader. Use CSS modules for styles. Props: minimal, only what changes. Variants via props, not separate components. Accessibility: keyboard nav, ARIA labels, focus states. No external libs. Toast: use context for state. Loader: SVG spinner from design. Button: support icon + text. Badge: color variants via prop.",
       "target_files": [
-        "src/pages/ServicesPricing.jsx"
+        "src/components/Button/Button.jsx",
+        "src/components/Button/Button.module.css",
+        "src/components/Badge/Badge.jsx",
+        "src/components/Badge/Badge.module.css",
+        "src/components/SelectInput/SelectInput.jsx",
+        "src/components/SelectInput/SelectInput.module.css",
+        "src/components/Toast/Toast.jsx",
+        "src/components/Toast/Toast.module.css",
+        "src/components/Toast/ToastContext.jsx",
+        "src/components/Loader/Loader.jsx",
+        "src/components/Loader/Loader.module.css"
       ],
       "acceptance_criteria": [
-        "Exact visual match to design",
-        "Toggle between monthly/yearly pricing works",
-        "Responsive layout"
+        "All components render without errors",
+        "Props match design variants",
+        "Accessibility attributes present",
+        "CSS modules scoped styles",
+        "Toast context works (show/hide)",
+        "Loader SVG matches design",
+        "No external dependencies added"
       ],
       "status": "DONE"
     },
@@ -41,16 +65,20 @@
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Create 404 page (src/pages/NotFound.jsx)",
-      "source_screen": "pixels_studio_404_brutalist",
-      "description": "Implement brutalist 404 page. Include error message, home link, background effect. Use CSS for animations.",
+      "title": "Build Services Pricing page",
+      "source_screen": "pixels_studio_services_pricing",
+      "description": "Convert Stitch screen to React page. Use shared components: Button, Badge, SelectInput. Layout: CSS Grid for pricing cards. Responsive: mobile-first, 1-column to 3-column. Data: hardcoded array for services. Pricing logic: client-side only. No API calls. Add hover/focus states for cards. Accessibility: semantic HTML, keyboard nav. Error state: none (static page).",
       "target_files": [
-        "src/pages/NotFound.jsx"
+        "src/pages/ServicesPricing.jsx",
+        "src/pages/ServicesPricing.module.css"
       ],
       "acceptance_criteria": [
-        "Visual match to design",
-        "Animation works",
-        "Link to home functional"
+        "Page matches design 1:1",
+        "Responsive layout works",
+        "Shared components used correctly",
+        "No console errors",
+        "Accessibility attributes present",
+        "Hardcoded data matches design"
       ],
       "status": "DONE"
     },
@@ -58,22 +86,23 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Extract shared UI components (src/components/)",
-      "source_screen": "",
-      "description": "Create reusable components from showcase screens. Components: Button, Badge, InputSelect, Table, Toast, Loader. Use Tailwind props for variants.",
+      "title": "Build Data Table component and showcase page",
+      "source_screen": "pixels_studio_table_showcase",
+      "description": "Build reusable DataTable component. Features: sorting (client-side), pagination (client-side), row selection (optional). Props: data, columns, pagination, sorting. Styling: CSS modules. No external libs. Showcase page: demo with sample data. Table: fixed header, scrollable body. Accessibility: keyboard nav, ARIA labels. Responsive: horizontal scroll on small screens.",
       "target_files": [
-        "src/components/Button.jsx",
-        "src/components/Badge.jsx",
-        "src/components/InputSelect.jsx",
-        "src/components/Table.jsx",
-        "src/components/Toast.jsx",
-        "src/components/Loader.jsx"
+        "src/components/DataTable/DataTable.jsx",
+        "src/components/DataTable/DataTable.module.css",
+        "src/pages/TableShowcase.jsx",
+        "src/pages/TableShowcase.module.css"
       ],
       "acceptance_criteria": [
-        "Components match design variants",
-        "Props for all visual states (size, color, disabled, etc.)",
-        "No business logic (pure UI)",
-        "Storybook stories optional for now"
+        "Table renders without errors",
+        "Sorting works (click headers)",
+        "Pagination works",
+        "Row selection works (if enabled)",
+        "Accessibility attributes present",
+        "Responsive behavior matches design",
+        "Showcase page matches Stitch screen"
       ],
       "status": "DONE"
     },
@@ -81,18 +110,20 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Implement Toast system (src/components/Toast.jsx + context)",
-      "source_screen": "pixels_studio_toast_ui_showcase",
-      "description": "Create toast component and context provider. Support success/error/warning/info variants. Auto-dismiss after 5s. Stackable.",
+      "title": "Build 404 page (brutalist design)",
+      "source_screen": "pixels_studio_404_brutalist",
+      "description": "Convert Stitch 404 screen to React page. Brutalist design: no shared components. Raw HTML/CSS. Animation: CSS keyframes for glitch effect. Responsive: full viewport. Accessibility: focusable link, ARIA labels. No JavaScript for animation. Link: back to home. Error: 404 status code (via React Router).",
       "target_files": [
-        "src/components/Toast.jsx",
-        "src/context/ToastContext.jsx"
+        "src/pages/NotFound.jsx",
+        "src/pages/NotFound.module.css"
       ],
       "acceptance_criteria": [
-        "All design variants work",
-        "Auto-dismiss timer",
-        "Multiple toasts stack correctly",
-        "Context API for global access"
+        "Page matches design 1:1",
+        "Glitch animation works",
+        "Link navigates to home",
+        "404 status code set",
+        "Accessibility attributes present",
+        "No JavaScript errors"
       ],
       "status": "DONE"
     },
@@ -100,23 +131,50 @@
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
+      "title": "Build Pricing System page (main dashboard)",
+      "source_screen": "stitch_pixels_studio_pricing_system 2",
+      "description": "Convert main Stitch screen to React page. Layout: complex grid. Components: DataTable (from TASK-004), Button, Badge, SelectInput, Toast. Data: hardcoded. Features: filter by service, sort by price, pagination. State: local component state. No API calls. Accessibility: keyboard nav, ARIA labels. Responsive: mobile-first, 1-column to multi-column. Error state: none (static data).",
+      "target_files": [
+        "src/pages/PricingSystem.jsx",
+        "src/pages/PricingSystem.module.css"
+      ],
+      "acceptance_criteria": [
+        "Page matches design 1:1",
+        "DataTable works with filters/sorting",
+        "Shared components used correctly",
+        "Responsive layout works",
+        "No console errors",
+        "Accessibility attributes present"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-007",
+      "role": "frontend",
+      "model": "hermes-auto",
       "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
       "source_screen": "",
-      "description": "Set up React Router. Create layout with navigation. Route to PricingSystem, ServicesPricing, NotFound pages. Include 404 fallback.",
+      "description": "Create app shell. Navigation: header with logo + nav links. Router: React Router v6. Routes: / (PricingSystem), /services (ServicesPricing), /table (TableShowcase), /404 (NotFound). Layout: shared header/footer. Toast: global provider. Error boundary: none (static app). 404: catch-all route. Responsive: mobile menu (CSS-only, no JS). Accessibility: skip link, ARIA labels. No external libs.",
       "target_files": [
         "src/App.jsx",
-        "src/components/Layout.jsx",
-        "src/components/Navbar.jsx"
+        "src/App.module.css",
+        "src/components/Header/Header.jsx",
+        "src/components/Header/Header.module.css",
+        "src/components/Footer/Footer.jsx",
+        "src/components/Footer/Footer.module.css"
       ],
       "acceptance_criteria": [
         "All routes work",
         "Navigation links active state",
-        "404 page shows for unknown routes",
-        "Layout responsive"
+        "Toast provider works globally",
+        "Responsive header works",
+        "404 route catches unknown paths",
+        "Accessibility attributes present",
+        "No console errors"
       ],
       "status": "DONE"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 15:45:58"
+  "updated_at": "2026-08-20 17:39:08"
 }
